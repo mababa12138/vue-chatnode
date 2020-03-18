@@ -8,8 +8,8 @@ import store from './store/index'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-import './assets/css/loading.css'
-import './assets/css/loading-btn.css'
+import './assets/css/loading.min.css'
+import './assets/css/ldbtn.min.css'
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
