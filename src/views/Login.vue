@@ -4,8 +4,6 @@
                   lead="Powered by Chatkit SDK and Bootstrap-Vue"
                   bg-variant="info"
                   text-variant="white">
-      <p>For more information visit website</p>
-      <b-btn target="_blank" href="https://pusher.com/chatkit">More Info</b-btn>
     </b-jumbotron>
     <b-container>
       <b-row>
