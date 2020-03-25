@@ -33,6 +33,8 @@
     position: absolute;
     top: 20%;
     left: -10%;
+    background: white;
+    border-radius: 10px;
   }
   .back {
     width: 100%;

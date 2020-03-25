@@ -1,6 +1,8 @@
 <template>
   <div class="login-form">
+    <div>
     <h5 class="text-center">聊天系统登录</h5>
+    </div>
     <hr>
     <el-form @submit.prevent="onSubmit">
       <el-alert type="error" v-if="hasError">{{ error }} </el-alert>
