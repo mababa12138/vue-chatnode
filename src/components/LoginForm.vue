@@ -3,7 +3,7 @@
     <h5 class="text-center">聊天系统登录</h5>
     <hr>
     <el-form @submit.prevent="onSubmit">
-      <el-alert type="error" :show="hasError">{{ error }} </el-alert>
+      <el-alert type="error" v-if="hasError">{{ error }} </el-alert>
       <el-form-item
       label="Username">
         <el-input 
