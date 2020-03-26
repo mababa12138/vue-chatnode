@@ -3,15 +3,16 @@
   <div class="room-list">
     <h4>Channels</h4>
     <hr>
-    <b-list-group v-if="activeRoom">
-      <b-list-group-item v-for="room in rooms"
-                        :key="room.name"
+    <el-tabs v-if="activeRoom" :tab-position="left">
+      <el-tab-pane v-for="room in rooms"
+                        :key="room.index"
+                        :label="room.name"
                         :active="activeRoom.id === room.id"
                         href="#"
                         @click="onChange(room)">
         # {{ room.name }}
-      </b-list-group-item>
-    </b-list-group>
+      </el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 

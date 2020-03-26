@@ -1,14 +1,10 @@
 //基本导航栏
 <template>
-  <b-navbar id="chat-navbar" toggleable="md" type="dark" variant="info">
-    <b-navbar-brand href="#">
-      Vue Chat
-    </b-navbar-brand>
-    <b-navbar-nav class="ml-auto">
-      <b-nav-text>{{ user.name }} | </b-nav-text>
-      <b-nav-item href="#" active>Logout</b-nav-item>
-    </b-navbar-nav>
-  </b-navbar>
+  <el-row id="chat-navbar">
+    <el-col href="#" :span="1">Vue Chat</el-col>
+    <el-col :span="1" :push="21"><div class="user">{{ user.name }} | </div></el-col>
+    <el-col :span="1" :push="21"><a href="#" active>Logout</a></el-col>
+  </el-row>
 </template>
 
 <script>
@@ -27,5 +23,16 @@ export default {
 <style>
   #chat-navbar {
     margin-bottom: 15px;
+    background: rgb(23,162,184);
+    padding: 15px;
+    color: white;
+  }
+  .user {
+    text-align: right;
+    margin-right: 10px;
+  }
+  a {
+    color: white;
+    text-decoration: none;
   }
 </style>
