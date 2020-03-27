@@ -2,24 +2,27 @@
 <template>
   <div class="message-form ld-over">
     <small class="text-muted">@{{ user.username }}</small>
-    <b-form @submit.prevent="onSubmit" class="ld-over" v-bind:class="{ running: sending }">
+    <el-form @submit.prevent="onSubmit" class="ld-over" v-bind:class="{ running: sending }">
+
       <div class="ld ld-ring ld-spin"></div>
-      <b-alert variant="danger" :show="hasError">{{ error }} </b-alert>
-      <b-form-group>
-        <b-form-input id="message-input"
+      <el-alert variant="danger" v-show="hasError">{{ error }} </el-alert>
+      <el-form-item>
+        <el-input id="message-input"
                       type="text"
                       v-model="message"
                       placeholder="Enter Message"
                       autocomplete="off"
                       required>
-        </b-form-input>
-      </b-form-group>
-      <div class="clearfix">
-        <b-button type="submit" variant="primary" class="float-right">
+        </el-input>
+      </el-form-item>
+
+      <div>
+        <el-button type="submit" variant="primary" class="float-right">
           Send
-        </b-button>
+        </el-button>
       </div>
-    </b-form>
+      
+    </el-form>
   </div>
 </template>
 
@@ -46,3 +49,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.float-right {
+  float: right;
+}
+</style>
