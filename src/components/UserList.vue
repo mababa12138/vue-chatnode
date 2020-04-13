@@ -9,7 +9,9 @@
         <el-card v-if="user.presence"
         :variant="statusColor(user.presence)"
         pill>
-        {{ user.presence }}</el-card>
+        {{ user.presence }}</el-card
+        
+        >
       </el-col>
     </el-row>
   </div>
