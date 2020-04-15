@@ -6,12 +6,11 @@
     <el-row>
       <el-col v-for="user in users" :key="user.username">
         {{ user.name }}
-        <el-card v-if="user.presence"
-        :variant="statusColor(user.presence)"
-        pill>
-        {{ user.presence }}</el-card
-        
-        >
+        <el-tag v-if="user.presence"
+        :type="statusColor(user.presence)"
+        effect="dark"
+        size="mini">
+        {{ user.presence }}</el-tag>
       </el-col>
     </el-row>
   </div>
@@ -30,8 +29,16 @@ export default {
   },
   methods: {
     statusColor(status) {
+      console.log('success')
       return status === 'online' ? 'success' : 'warning'
     }
   }
 }
 </script>
+
+<style scoped>
+.el-tag {
+  border-radius: 15px;
+  padding: 0 8px;
+}
+</style>

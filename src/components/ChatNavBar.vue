@@ -2,8 +2,8 @@
 <template>
   <el-row id="chat-navbar">
     <el-col href="#" :span="1">Vue Chat</el-col>
-    <el-col :span="1" :push="21"><div class="user">{{ user.name }} | </div></el-col>
-    <el-col :span="1" :push="21"><a href="#" active>Logout</a></el-col>
+    <el-col :span="2" :push="20"><div class="user">{{ user.name }} | </div></el-col>
+    <el-col :span="2" :push="20"><a href="#" active>Logout</a></el-col>
   </el-row>
 </template>
 

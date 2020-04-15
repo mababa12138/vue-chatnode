@@ -5,7 +5,7 @@
       <div class="ld ld-ring ld-spin"></div>
       <el-row>
 
-        <el-col :span="4">
+        <el-col :span="4" style="height:100%">
           <RoomList />
         </el-col>
         <el-col :span="16">

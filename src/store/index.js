@@ -17,10 +17,10 @@ export default new Vuex.Store({
     loading: false,
     sending: false,
     error: 'Relax! This is just a drill error message',
-    user: [{
+    user: {
       username: 'Jack',
       name: 'Jack Sparrow'
-    }],
+    },
     reconnect: false,
     activeRoom: {
       id: '124'

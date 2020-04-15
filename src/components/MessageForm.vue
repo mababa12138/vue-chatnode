@@ -46,6 +46,9 @@ export default {
     ...mapGetters([
       'hasError'
     ])
+  },
+  mounted:function() {
+    console.log(this.user)
   }
 }
 </script>
