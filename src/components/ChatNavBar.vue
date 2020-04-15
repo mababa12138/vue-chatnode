@@ -30,6 +30,7 @@ export default {
   .user {
     text-align: right;
     margin-right: 10px;
+    opacity: 0.5;
   }
   a {
     color: white;
