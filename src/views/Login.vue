@@ -1,8 +1,10 @@
 <template>
   <div class="back">
-    <div class="login">
+    <div class="login" id="user_list">
       <el-container>
-        <el-main><LoginForm /></el-main>
+        <el-main>
+          <LoginForm />
+        </el-main>
       </el-container>
     </div>
   </div>
@@ -15,17 +17,19 @@
     name: 'login',
     components: {
       LoginForm
-    }
+    },
   }
 </script>
-
 <style>
-  html,body {
+  html,
+  body {
     height: 100%;
   }
-  body{
+
+  body {
     margin: 0;
   }
+
   .login {
     margin-left: 50%;
     width: 20%;
@@ -35,6 +39,7 @@
     background: white;
     border-radius: 10px;
   }
+
   .back {
     width: 100%;
     height: 100%;
