@@ -22,7 +22,7 @@ export default new Vuex.Store({
       name: 'Jack Sparrow'
     },
     reconnect: false,
-    activeRoom: {
+    activeRoom: { 
       id: '124'
     },
     rooms: [

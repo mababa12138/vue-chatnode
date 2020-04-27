@@ -3,7 +3,7 @@
   <el-row id="chat-navbar">
     <el-col href="#" :span="1">Vue Chat</el-col>
     <el-col :span="2" :push="20"><div class="user">{{ user.name }} | </div></el-col>
-    <el-col :span="2" :push="20"><a href="#" active>Logout</a></el-col>
+    <el-col :span="1" :push="20"><a href="#" active>Logout</a></el-col>
   </el-row>
 </template>
 
@@ -26,6 +26,9 @@ export default {
     background: rgb(23,162,184);
     padding: 15px;
     color: white;
+  }
+  #chat-navbar .el-col:nth-child(3){
+    width: 3%;
   }
   .user {
     text-align: right;
