@@ -1,5 +1,4 @@
 import Vue from 'vue'
-// import BootstrapVue from 'bootstrap-vue'
 import VueChatScroll from 'vue-chat-scroll'
 import ElementUI from 'element-ui'
 
@@ -7,20 +6,22 @@ import App from './App.vue'
 import router from './router'
 import store from './store/index'
 
-// import 'bootstrap/dist/css/bootstrap.css'
-// import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/css/loading.min.css'
 import './assets/css/ldbtn.min.css'
 import 'element-ui/lib/theme-chalk/index.css'
 
-import WebIM from './server/web-im'
+import tim from './tim'
+import TIM from 'tim-js-sdk'
 
-Vue.config.productionTip = false
-// Vue.use(BootstrapVue)
 Vue.use(VueChatScroll)
 Vue.use(ElementUI)
 
-Vue.prototype.$im = WebIM
+window.tim = tim
+window.TIM = TIM
+
+Vue.prototype.tim = tim
+Vue.prototype.TIM = TIM
+
 new Vue({
   router,
   store,

@@ -1,4 +1,4 @@
-//用于将消息发送刀所选房间的表单
+//用于将消息发送到所选房间的表单
 <template>
   <div class="message-form ld-over">
     <small class="text-muted">@{{ user.username }}</small>
@@ -8,11 +8,12 @@
       <el-alert variant="danger" v-show="hasError">{{ error }} </el-alert>
       <el-form-item>
         <el-input id="message-input"
-                      type="text"
-                      v-model="message"
-                      placeholder="Enter Message"
-                      autocomplete="off"
-                      required>
+        ref="text-input"
+        type="text"
+        v-model="messageContent"
+        placeholder="Enter Message"
+        autocomplete="off"
+        required>
         </el-input>
       </el-form-item>
 
@@ -31,24 +32,46 @@ import { mapState, mapGetters } from 'vuex'
 
 export default {
   name: 'message-form',
-  data() {
+  data(){
     return {
-      message: ''
+      messageContent: '',
     }
   },
   computed: {
-    ...mapState([
-      'user',
-      'sending',
-      'error',
-      'activeRoom'
-    ]),
-    ...mapGetters([
-      'hasError'
-    ])
+    ...mapState(['toAccount', 'currentConversationType']),
+    ...mapGetters({
+      memberList: state => state.group.currentMemberList,
+      userID: state => state.user.userID
+    })
   },
-  mounted:function() {
-    console.log(this.user)
+  methods: {
+    sendTextMessage() {
+      if (
+        this.messageContent === '' ||
+        this.messageContent.trim().length === 0
+      ) {
+        this.messageContent = ''
+        this.$store.commit('showMessage', {
+          message: '不能发送空消息哦！',
+          type: 'info'
+        })
+        return
+      }
+      const message = this.tim.createTextMessage({
+        to: this.toAccount,
+        conversationType: this.currentConversationType,
+        payload: { text: this.messageContent }
+      })
+      this.$store.commit('pushCurrentMessageList', message)
+      this.$bus.$emit('scroll-bottom')
+      this.tim.sendMessage(message).catch(error => {
+        this.$store.commit('showMessage', {
+          type: 'error',
+          message: error.message
+        })
+      })
+      this.messageContent = ''
+    },
   }
 }
 </script>

@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VuexPersistence from 'vuex-persist'
-import mutations from './mutations'
-import actions from './actions'
+import user from './modules/user'
+import conversation from './modules/conversation'
+import {Message} from 'element-ui'
 
 Vue.use(Vuex)
 
@@ -14,6 +15,9 @@ const vuexLocal = new VuexPersistence({
 
 export default new Vuex.Store({
   state: {
+    current: Date.now(), // 当前时间
+    intervalID: 0,
+    message: undefined,
     loading: false,
     sending: false,
     error: 'Relax! This is just a drill error message',
@@ -66,11 +70,40 @@ export default new Vuex.Store({
     ],
     userTyping: null
   },
-  mutations,
-  actions,
   getters: {
-    hasError: state => state.error ? true : false
+    hidden(state) {
+      // eslint-disable-next-line no-unused-vars
+      const temp = state.current 
+      if (typeof document.hasFocus !== 'function') {
+        return document.hidden
+      }
+      return !document.hasFocus()
+    }
   },
-  plugins: [vuexLocal.plugin],
-  strict: debug
+  mutations: {
+    startComputeCurrent(state) {
+      state.intervalID = setInterval(() => {
+        state.current = Date.now()
+      }, 500)
+    },
+    stopComputeCurrent(state) {
+      clearInterval(state.intervalID)
+      state.intervalID = 0
+    },
+    showMessage(state, options) {
+      if (state.message) {
+        state.message.close()
+      }
+      state.message = Message({
+        message: options.message,
+        type: options.type || 'success',
+        duration: options.duration || 2000,
+        offset: 40
+      })
+    }
+  },
+  modules: {
+    user,
+    conversation
+  },
 })
