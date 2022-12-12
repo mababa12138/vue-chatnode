@@ -16,7 +16,7 @@
     "cos-js-sdk-v5": "^0.5.26",
     "easemob-websdk": "^3.0.10",
     "element-ui": "^2.13.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "moment": "^2.24.0",
     "puge_background_bubble": "^1.0.2",
     "pusher": "^3.0.1",
